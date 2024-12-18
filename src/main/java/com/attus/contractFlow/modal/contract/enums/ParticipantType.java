@@ -1,6 +1,6 @@
 package com.attus.contractFlow.modal.contract.enums;
 
-public enum TipoParticipante {
+public enum ParticipantType {
     CLIENTE,
     FORNECEDOR,
     ADVOGADO

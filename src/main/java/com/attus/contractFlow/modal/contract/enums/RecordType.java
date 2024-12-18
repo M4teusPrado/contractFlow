@@ -1,6 +1,6 @@
 package com.attus.contractFlow.modal.contract.enums;
 
-public enum TipoRegistro {
+public enum RecordType {
     ASSINATURA,
     RENOVACAO,
     RESCISAO
