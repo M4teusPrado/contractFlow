@@ -12,9 +12,9 @@ public class CreateContractRequestDTO {
     private String description;
 
     @JsonProperty("participantes")
-    private List<ContractParticipantDTO> participants;
+    private List<CreateContractParticipantDTO> participants;
 
     @JsonProperty("registro")
-    private ContractRecordDTO record;
+    private CreateContractEventDTO record;
 }
 

@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class ContractParticipantDTO {
+public class CreateContractParticipantDTO {
 
     @JsonProperty("nomeCompleto")
     private String fullName;

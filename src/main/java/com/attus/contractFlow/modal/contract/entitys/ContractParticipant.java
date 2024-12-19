@@ -1,6 +1,6 @@
 package com.attus.contractFlow.modal.contract.entitys;
 
-import com.attus.contractFlow.dto.request.contract.ContractParticipantDTO;
+import com.attus.contractFlow.dto.request.contract.CreateContractParticipantDTO;
 import com.attus.contractFlow.modal.contract.enums.ParticipantType;
 import com.attus.contractFlow.modal.contract.valueobject.Contact;
 import com.attus.contractFlow.modal.contract.valueobject.IdentificationDocument;
@@ -34,7 +34,7 @@ public class ContractParticipant {
     @JoinColumn(name = "contractNumber")
     private Contract contract;
 
-    public ContractParticipant(ContractParticipantDTO dto) {
+    public ContractParticipant(CreateContractParticipantDTO dto) {
         this.fullName = dto.getFullName();
         this.participantType = dto.getParticipantType();
         this.contact = dto.getContact();

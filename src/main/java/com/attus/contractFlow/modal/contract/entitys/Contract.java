@@ -1,7 +1,7 @@
 package com.attus.contractFlow.modal.contract.entitys;
 
-import com.attus.contractFlow.dto.request.contract.ContractParticipantDTO;
-import com.attus.contractFlow.dto.request.contract.ContractRecordDTO;
+import com.attus.contractFlow.dto.request.contract.CreateContractParticipantDTO;
+import com.attus.contractFlow.dto.request.contract.CreateContractEventDTO;
 import com.attus.contractFlow.dto.request.contract.CreateContractRequestDTO;
 import com.attus.contractFlow.modal.contract.enums.ContractStatus;
 import jakarta.persistence.*;
@@ -40,16 +40,16 @@ public class Contract {
     private List<ContractParticipant> parties = new ArrayList<>();
 
     @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ContractRecord> records = new ArrayList<>();
+    private List<ContractEvents> records = new ArrayList<>();
 
-    public void addContractParticipant(ContractParticipantDTO dto) {
+    public void addContractParticipant(CreateContractParticipantDTO dto) {
         ContractParticipant participant = new ContractParticipant(dto);
         participant.setContract(this);
         parties.add(participant);
     }
 
-    public void addContractRecords(ContractRecordDTO dto) {
-        ContractRecord record = new ContractRecord(dto);
+    public void addContractRecords(CreateContractEventDTO dto) {
+        ContractEvents record = new ContractEvents(dto);
         record.setContract(this);
         records.add(record);
     }
