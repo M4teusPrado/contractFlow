@@ -1,4 +1,4 @@
-package com.attus.contractFlow.dto.request.contract;
+package com.attus.contractFlow.dto.request.contract.create;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;

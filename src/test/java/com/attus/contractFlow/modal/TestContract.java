@@ -1,9 +1,9 @@
 package com.attus.contractFlow.modal;
 
 
-import com.attus.contractFlow.dto.request.contract.CreateContractEventDTO;
-import com.attus.contractFlow.dto.request.contract.CreateContractParticipantDTO;
-import com.attus.contractFlow.dto.request.contract.CreateContractRequestDTO;
+import com.attus.contractFlow.dto.request.contract.create.CreateContractEventDTO;
+import com.attus.contractFlow.dto.request.contract.create.CreateContractParticipantDTO;
+import com.attus.contractFlow.dto.request.contract.create.CreateContractRequestDTO;
 import com.attus.contractFlow.modal.contract.entitys.Contract;
 import com.attus.contractFlow.modal.contract.enums.ContractStatus;
 import com.attus.contractFlow.modal.contract.enums.EventType;

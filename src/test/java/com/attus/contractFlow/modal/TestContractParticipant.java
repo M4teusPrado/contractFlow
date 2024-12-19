@@ -1,6 +1,6 @@
 package com.attus.contractFlow.modal;
 
-import com.attus.contractFlow.dto.request.contract.CreateContractParticipantDTO;
+import com.attus.contractFlow.dto.request.contract.create.CreateContractParticipantDTO;
 import com.attus.contractFlow.modal.contract.entitys.ContractParticipant;
 import com.attus.contractFlow.modal.contract.enums.ParticipantType;
 import com.attus.contractFlow.modal.contract.valueobject.Contact;

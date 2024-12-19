@@ -1,6 +1,6 @@
 package com.attus.contractFlow.modal.contract.entitys;
 
-import com.attus.contractFlow.dto.request.contract.CreateContractEventDTO;
+import com.attus.contractFlow.dto.request.contract.create.CreateContractEventDTO;
 import com.attus.contractFlow.modal.contract.enums.EventType;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -29,6 +29,9 @@ public class ContractEvents {
     @ManyToOne
     @JoinColumn(name = "contractNumber")
     private Contract contract;
+
+    public ContractEvents() {
+    }
 
     public ContractEvents(CreateContractEventDTO dto) {
         this.eventType = dto.getEventType();

@@ -7,14 +7,14 @@ import java.time.LocalDateTime;
 
 @Getter
 @AllArgsConstructor
-public class CreateContractResponseDTO {
+public class UpdateContractResponseDTO {
     private Integer contractId;
     private String message;
     private String timestamp;
 
-    public CreateContractResponseDTO(Integer contractId) {
+    public UpdateContractResponseDTO(Integer contractId) {
         this.contractId = contractId;
-        this.message = "Contrato criado com sucesso!";
+        this.message = "Contrato alterado com sucesso!";
         this.timestamp = LocalDateTime.now().toString();
     }
 }

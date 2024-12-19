@@ -1,6 +1,6 @@
 package com.attus.contractFlow.modal;
 
-import com.attus.contractFlow.dto.request.contract.CreateContractEventDTO;
+import com.attus.contractFlow.dto.request.contract.create.CreateContractEventDTO;
 import com.attus.contractFlow.modal.contract.entitys.ContractEvents;
 import com.attus.contractFlow.modal.contract.enums.EventType;
 import org.junit.jupiter.api.Assertions;

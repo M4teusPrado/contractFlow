@@ -1,6 +1,6 @@
 package com.attus.contractFlow.service.impl;
 
-import com.attus.contractFlow.dto.request.contract.CreateContractRequestDTO;
+import com.attus.contractFlow.dto.request.contract.create.CreateContractRequestDTO;
 import com.attus.contractFlow.dto.response.CreateContractResponseDTO;
 import com.attus.contractFlow.modal.contract.entitys.Contract;
 import com.attus.contractFlow.repository.ContractRepository;
