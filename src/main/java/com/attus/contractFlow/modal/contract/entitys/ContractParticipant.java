@@ -39,5 +39,28 @@ public class ContractParticipant {
         this.participantType = dto.getParticipantType();
         this.contact = dto.getContact();
         this.identificationDocument = dto.getIdentificationDocument();
+        valid();
+    }
+
+    private void valid() {
+        if (fullName == null || fullName.trim().isEmpty()) {
+            throw new IllegalArgumentException("O nome completo do participante não pode ser vazio.");
+        }
+
+        if (fullName.length() > 255) {
+            throw new IllegalArgumentException("O nome completo do participante não pode exceder 255 caracteres.");
+        }
+
+        if (participantType == null) {
+            throw new IllegalArgumentException("O tipo de participante não pode ser nulo.");
+        }
+
+        if (identificationDocument == null) {
+            throw new IllegalArgumentException("O documento de identificação não pode ser nulo.");
+        }
+
+        if (contact == null) {
+            throw new IllegalArgumentException("As informações de contato não podem ser nulas.");
+        }
     }
 }

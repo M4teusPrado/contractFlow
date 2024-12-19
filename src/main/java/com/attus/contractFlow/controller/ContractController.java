@@ -2,6 +2,7 @@ package com.attus.contractFlow.controller;
 
 
 import com.attus.contractFlow.dto.request.contract.CreateContractRequestDTO;
+import com.attus.contractFlow.dto.response.CreateContractResponseDTO;
 import com.attus.contractFlow.service.ContractCreationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,8 +24,8 @@ public class ContractController {
     }
 
     @PostMapping("/criar")
-    public ResponseEntity<CreateContractRequestDTO> createContract(@RequestBody CreateContractRequestDTO request) {
-        contractCreationService.createContract(request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(request);
+    public ResponseEntity<CreateContractResponseDTO> createContract(@RequestBody CreateContractRequestDTO request) {
+        CreateContractResponseDTO response = contractCreationService.createContract(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 }

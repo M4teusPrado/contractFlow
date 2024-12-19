@@ -7,6 +7,7 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
+
 @Entity
 @Data
 public class ContractEvents {
@@ -33,5 +34,21 @@ public class ContractEvents {
         this.eventType = dto.getEventType();
         this.description = dto.getDescription();
         this.recordDate = LocalDate.now();
+        
+        valid();
+    }
+
+    private void valid() {
+        if (eventType == null) {
+            throw new IllegalArgumentException("O tipo de evento não pode ser nulo.");
+        }
+
+        if (description != null && description.length() > 255) {
+            throw new IllegalArgumentException("A descrição do evento não pode exceder 255 caracteres.");
+        }
+
+        if (description == null || description.trim().isEmpty()) {
+            throw new IllegalArgumentException("A descrição do evento não pode ser vazia.");
+        }
     }
 }

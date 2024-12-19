@@ -99,4 +99,33 @@ public class TestContract {
         // Act & Assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> new Contract(contractDto), "O contrato deve conter pelo menos um registro de evento.");
     }
+
+
+    @Test
+    void shouldThrowExceptionWhenDescriptionMoreThan255() {
+        // Arrange
+        String longDescription = "a".repeat(256);
+        contractDto.setDescription(longDescription);
+
+        // Act
+        IllegalArgumentException exception = Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> new Contract(contractDto)
+        );
+
+        //Assert
+        Assertions.assertEquals(
+                "A descrição do contrato não pode exceder 255 caracteres.",
+                exception.getMessage()
+        );
+    }
+
+    @Test
+    void shouldFillStatusWithActive() {
+        // Act
+        Contract contract = new Contract(contractDto);
+
+        //Assert
+        Assertions.assertEquals(contract.getStatus(), ContractStatus.ACTIVE);
+    }
 }

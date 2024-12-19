@@ -85,13 +85,5 @@ public class Contract {
         if (this.description.length() > 255) {
             throw new IllegalArgumentException("A descrição do contrato não pode exceder 255 caracteres.");
         }
-
-        if (this.creationDate == null) {
-            throw new IllegalArgumentException("A data de criação do contrato é obrigatória.");
-        }
-
-        if (this.status == null) {
-            throw new IllegalArgumentException("O status do contrato é obrigatório.");
-        }
     }
 }
