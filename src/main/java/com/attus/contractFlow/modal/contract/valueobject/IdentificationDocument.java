@@ -1,9 +1,17 @@
 package com.attus.contractFlow.modal.contract.valueobject;
 
-public class IdentificationDocument {
-    private String number;
+import jakarta.persistence.Embeddable;
+import lombok.Data;
 
-    public IdentificationDocument(String number) {
-        this.number = number;
+@Data
+@Embeddable
+public class IdentificationDocument {
+    private String identification;
+
+    public IdentificationDocument() {
+    }
+
+    public IdentificationDocument(String identification) {
+        this.identification = identification;
     }
 }
