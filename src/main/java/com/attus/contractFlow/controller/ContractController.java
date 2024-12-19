@@ -12,19 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/contratos")
+@RequestMapping("/api/contrato")
 public class ContractController {
 
-
     private final ContractCreationService contractCreationService;
-
 
     @Autowired
     public ContractController(ContractCreationService contractCreationService) {
         this.contractCreationService = contractCreationService;
     }
 
-    @PostMapping
+    @PostMapping("/criar")
     public ResponseEntity<CreateContractRequestDTO> createContract(@RequestBody CreateContractRequestDTO request) {
         contractCreationService.createContract(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(request);

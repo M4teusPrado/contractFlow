@@ -7,6 +7,7 @@ import com.attus.contractFlow.modal.contract.enums.ContractStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -36,9 +37,11 @@ public class Contract {
     @Column(name = "status", nullable = false)
     private ContractStatus status;
 
+    @Setter(lombok.AccessLevel.NONE)
     @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContractParticipant> parties = new ArrayList<>();
 
+    @Setter(lombok.AccessLevel.NONE)
     @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContractEvents> records = new ArrayList<>();
 
@@ -58,8 +61,37 @@ public class Contract {
         this.creationDate = LocalDate.now();
         this.status = ContractStatus.ACTIVE;
         this.description = dto.getDescription();
-        addContractRecords(dto.getRecord());
+
+        if (dto.getParticipants() == null || dto.getParticipants().isEmpty()) {
+            throw new IllegalArgumentException("O contrato deve ter pelo menos um participante.");
+        }
+
         dto.getParticipants().forEach(this::addContractParticipant);
 
+        if (dto.getRecord() == null) {
+            throw new IllegalArgumentException("O contrato deve conter pelo menos um registro de evento.");
+        }
+
+        addContractRecords(dto.getRecord());
+
+        valid();
+    }
+
+    private void valid() {
+
+        if (this.description == null || this.description.isBlank()) {
+            throw new IllegalArgumentException("A descrição do contrato é obrigatória.");
+        }
+        if (this.description.length() > 255) {
+            throw new IllegalArgumentException("A descrição do contrato não pode exceder 255 caracteres.");
+        }
+
+        if (this.creationDate == null) {
+            throw new IllegalArgumentException("A data de criação do contrato é obrigatória.");
+        }
+
+        if (this.status == null) {
+            throw new IllegalArgumentException("O status do contrato é obrigatório.");
+        }
     }
 }
